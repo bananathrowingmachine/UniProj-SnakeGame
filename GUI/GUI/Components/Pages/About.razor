@@ -1,0 +1,58 @@
+﻿<!--
+Written by bananathrowingmachine and [redacted] on November 21, 2024
+ -->
+@page "/"
+
+<PageTitle>About</PageTitle>
+
+<h1> About the Game </h1>
+<p>
+    Your goal is to collect powerups to grow longer, obtaining the highest score possible.
+    Be aware of obstacles in the world, such as walls and other snake players. Collide with one of these objects and it's game over!
+</p>
+
+<h1> Features </h1>
+<ul>
+    <li><b> Movement Controls: </b> Use the standard WASD to control the snake through the world. </li>
+    <li><b> Snake Growth & Power-Ups: </b> Control a snake that grows longer by collecting power-ups (food) scattered throughout the world. </li>
+    <li><b> Collisions & Respawn: </b> Colliding with walls and other snakes results in death. Respawn will happen at a random location a few moments after death. </li>
+    <li><b> Connecting & Disconnecting: </b> Connect to the game with an address and port of your choosing. To start a new instance of the game, simply use the disconnect button, enter your player information, and click on connect. </li>
+    <li><b> Easier Reconnecting: </b> This client offers the ability to reconnect without restarting the web browser or refreshing the page. </li>
+    <li><b> Stylized Powerups: </b> The powerups are a bunch of exotic tropical fruits instead of boring colored dots. </li>
+    <li><b> Stylized Deaths: </b> The head of the snake will explode whenever a snake dies. </li>
+</ul>
+
+<h1> Design Choices </h1>
+<ul>
+    <li>
+        <b> Game Loop: </b>
+        When the client first pulls up the webpage, the game loop is immediately called.
+        This is to guarantee that the game loop will be already established and filling with information as the client enters it.
+        To verify that the game loop does not start running before it has all needed information, multiple checks are put in place to verify that all data is loaded before drawing.
+    </li>
+    <li>
+        <b> Connection Errors: </b>
+        Connection errors can occur when a player enters the incorrect address or port, attempts to connect to an inactive server, or if any issue occurs during connection.
+        Whenever any of these issues occur, a popup is displayed indicating that a connection error occurred.
+        The popup will remain until the client retries connection, where the error box with either disappear permanently or reappear upon another issue occurring.
+        This design was chosen so that the reason for disconnection could be displayed until the player was able to correct it.
+    </li>
+    <li>
+        <b> Player Name Errors: </b>
+        Player name errors can occur when a player enters an invalid name. An invalid name is considered one that is less than 1 character and greater than 16 characters.
+        The error box remains on screen until the player enters a valid snake name, as the popup contains information regarding name specifications.
+        As soon as a valid name is entered, the error message will disappear.
+    </li>
+</ul>
+
+<h1> What Works and What Doesn't </h1>
+<ul>
+    <li>
+        <b> Overview: </b> 
+        From thorough testing of this assignment, it appears that all necessary features function without error.
+        In certain circumstances, such as disconnecting or clicking onto another page, the program will throw an exception.
+        All exceptions have been modified to be gracefully handled based on the code that threw it.
+    </li>
+</ul>
+
+<h4>Made by bananathrowingmachine and [redacted] on Nov 20, 2024</h4>
